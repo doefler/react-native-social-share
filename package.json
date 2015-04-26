@@ -1,0 +1,47 @@
+{
+  "name": "react-native-social-share",
+  "version": "0.0.1",
+  "description": "Use the iOS native Twitter and Facebook share view from react native",
+  "author": {
+    "name": "Kim Døfler",
+    "email": "kim.doefler@gmail.com"
+  },
+  "keywords": [
+    "react",
+    "twitter",
+    "facebook",
+    "SLComposeViewController",
+    "RCTBridgeModule",
+    "Social",
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "mobile",
+    "ui",
+    "react native facebook",
+    "react native twitter",
+  ],
+  "homepage": "https://github.com/doefler/react-native-social-share",
+  "bugs": {
+    "url": "https://github.com/doefler/react-native-social-share/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/doefler/react-native-social-share.git"
+  },
+  "dependencies": {
+    "react-native": "^0.4.0"
+  },
+  "scripts": {},
+  "_npmUser": {
+    "name": "doefler",
+    "email": "kim.doefler@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "Kim Døfler",
+      "email": "kim.doefler@gmail.com"
+    }
+  ],
+  "license": "MIT",
+}
