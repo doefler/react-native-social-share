@@ -1,156 +1,64 @@
-# React Native Icons
+# React Native Social Share
 
-[![Join the chat at https://gitter.im/corymsmith/react-native-icons](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/corymsmith/react-native-icons?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+Use the build in share view from iOS to let the user share on Facebook and Twitter.
+It will use the users existing account without having to get new authorizations.
+You can even preset text, image and link for the share view.
 
-A React Native wrapper on top of [https://github.com/PrideChung/FontAwesomeKit].
+In other words a React Native wrapper for the `SLComposeViewController`
 
-Currently FontAwesomeKit supports **4** different icon fonts.
 
-- [FontAwesome 4.2](http://fortawesome.github.io/Font-Awesome/) Contains **479** icons
-- [ionicons 2.0.0](http://ionicons.com/) Contains **733** icons, lots of iOS 7 style outlined icons.
-- [Foundation icons](http://zurb.com/playground/foundation-icon-fonts-3) Contains **283** icons.
-- [Zocial](http://zocial.smcllns.com/) Contains **99** social icons.
-
-An icon has a name, size, and a color (optional)
+![Animation](https://github.com/doefler/react-native-social-share/blob/master/animation.gif))
+![Screenshot](https://github.com/doefler/react-native-social-share/blob/master/still.png))
 
 ## Getting started
 
-1. `npm install react-native-icons@latest --save`
+1. `npm install react-native-social-share --save`
 2. In XCode, in the project navigator right click `Libraries` ➜ `Add Files to [your project's name]`
-3. Go to `node_modules` ➜ `react-native-icons`➜ ios and add `ReactNativeIcons.xcodeproj` 
-4. Add `libReactNativeIcons.a` (from 'Products' under ReactNativeIcons.xcodeproj) to your project's `Build Phases` ➜ `Link Binary With Libraries` phase
-5. Add the font files you want to use into the `Copy Bundle Resources` build phase of your project (click the '+' and click 'Add Other...' then choose the font files from  `node_modules/react-native-icons/ios/Libraries/FontAwesomeKit`).
+3. Go to `node_modules` ➜ `react-native-social-share`➜ iOS and add `KDSocialShare.h` and `KDSocialShare.m` 
+4. Go to your project's `Build Phases` ➜ `Link Binary With Libraries` phase
+5. Add `Social.framework` to ➜ `Link Binary With Libraries` build phase of your project (click the '+' and search for 'social').
 6. Run your project (`Cmd+R`)
 
-## Notes
+- Now you can implement the share popups in your react native code.
 
-- You only need to include the icon font files you want to use 
-
-## Example of icons
+## Example of implementation
 
 ```
-<Icon
-  name='ion|beer'
-  size={150}
-  color='#887700'
-  style={styles.beer}
-/>
-<Icon
-  name='zocial|github'
-  size={70}
-  color='black'
-  style={styles.github}
-/>
-<Icon
-  name='fontawesome|facebook-square'
-  size={70}
-  color='#3b5998'
-  style={styles.facebook}
-/>
-<Icon
-  name='foundation|lightbulb'
-  size={30}
-  color='#777777'
-  style={styles.lightbulb}
-/>
-```
+  tweet : function() {
 
-## Stacked icons
-
-```
-<Icon
-  name='fontawesome|square'
-  size={80}
-  color='#55acee'
-  style={styles.twitterOutline}>
-  <Icon
-    name='fontawesome|twitter'
-    size={50}
-    color='#ffffff'
-    style={styles.twitterIcon}/>
-</Icon>
-```
-
-## Custom tab bar
-
-```javascript
-
-var Example = React.createClass({
-  getInitialState: function() {
-    return {
-      selectedTab: 'home',
-      notifCount: 0,
-      presses: 0,
-    };
-  },
-  render: function () {
-    return (
-      <SMXTabBarIOS
-        selectedTab={this.state.selectedTab}
-        tintColor={'#c1d82f'}
-        barTintColor={'#000000'}
-        styles={styles.tabBar}>
-        <SMXTabBarItemIOS
-          name="home"
-          iconName={'ion|ios-home-outline'}
-          title={''}
-          iconSize={32}
-          accessibilityLabel="Home Tab"
-          selected={this.state.selectedTab === 'home'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'home',
-            });
-          }}>
-          {this._renderContent()}
-        </SMXTabBarItemIOS>
-        <SMXTabBarItemIOS
-            name="articles"
-            iconName={'ion|ios-paper-outline'}
-            title={''}
-            iconSize={32}
-            accessibilityLabel="Articles Tab"
-            selected={this.state.selectedTab === 'articles'}
-            onPress={() => {
-            this.setState({
-              selectedTab: 'articles',
-            });
-          }}>
-          {this._renderContent()}
-        </SMXTabBarItemIOS>
-        <SMXTabBarItemIOS
-            name="messages"
-            iconName={'ion|chatboxes'}
-            title={''}
-            iconSize={32}
-            accessibilityLabel="Messages Tab"
-            selected={this.state.selectedTab === 'messages'}
-            onPress={() => {
-            this.setState({
-              selectedTab: 'messages',
-            });
-          }}>
-          {this._renderContent()}
-        </SMXTabBarItemIOS>
-        <SMXTabBarItemIOS
-            name="settings"
-            iconName={'ion|ios-gear'}
-            title={''}
-            iconSize={32}
-            accessibilityLabel="Settings Tab"
-            selected={this.state.selectedTab === 'settings'}
-            onPress={() => {
-            this.setState({
-              selectedTab: 'settings',
-            });
-          }}>
-          {this._renderContent()}
-        </SMXTabBarItemIOS>
-      </SMXTabBarIOS>
+    KDSocialShare.tweet({
+        'text':'Global democratized marketplace for art',
+        'link':'https://artboost.com/',
+        'imagelink':'https://artboost.com/apple-touch-icon-144x144.png',
+      },
+      (results) => {
+        console.log(results);
+      }
     );
-  }
-});
+  },
+
+  shareOnFacebook : function() {
+
+    KDSocialShare.shareOnFacebook({
+        'text':'Global democratized marketplace for art',
+        'link':'https://artboost.com/',
+        'imagelink':'https://artboost.com/apple-touch-icon-144x144.png',
+      },
+      (results) => {
+        console.log(results);
+      }
+    );
+  },
 ```
 
+`KDSocialShare.shareOnFacebook(options [object], callback [function])`
+`KDSocialShare.tweet(options [object], callback [function])`
 
-![Screenshot](https://dl.dropboxusercontent.com/u/6721696/stacked-demo.png)
+Both the options object and the callback function needs to be set. The options object can be empty though if you do not want to preset any of the possible options. 
+
+text: - Sets the initial text of the message on the SLComposeViewController instance.
+imagelink: - Adds image files as attachments to the message.
+link: - Adds a URL to the message. The method automatically handles the URL shortening.
+
+SLComposeViewControllerResultCancelled – The user cancelled the composition session by touching the Cancel button.
+SLComposeViewControllerResultDone – The user sent the composed message by touching the Send button.
