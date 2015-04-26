@@ -7,7 +7,7 @@ You can even preset text, image and link for the share view.
 In other words a React Native wrapper for the `SLComposeViewController`
 
 
-![Animation](https://github.com/doefler/react-native-social-share/blob/master/animation.gif)
+![Animation](https://raw.githubusercontent.com/doefler/react-native-social-share/master/animation.gif)
 
 ## Getting started
 
@@ -185,4 +185,4 @@ AppRegistry.registerComponent('ReactNativeSocialShare', () => ReactNativeSocialS
 
 ## Done
 
-![Screenshot](https://github.com/doefler/react-native-social-share/blob/master/still.png)
+![Screenshot](https://raw.githubusercontent.com/doefler/react-native-social-share/master/still.png)

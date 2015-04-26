@@ -19,7 +19,7 @@
     "mobile",
     "ui",
     "react native facebook",
-    "react native twitter",
+    "react native twitter"
   ],
   "homepage": "https://github.com/doefler/react-native-social-share",
   "bugs": {
@@ -43,5 +43,5 @@
       "email": "kim.doefler@gmail.com"
     }
   ],
-  "license": "MIT",
+  "license": "MIT"
 }
