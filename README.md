@@ -7,8 +7,7 @@ You can even preset text, image and link for the share view.
 In other words a React Native wrapper for the `SLComposeViewController`
 
 
-![Animation](https://github.com/doefler/react-native-social-share/blob/master/animation.gif))
-![Screenshot](https://github.com/doefler/react-native-social-share/blob/master/still.png))
+![Animation](https://github.com/doefler/react-native-social-share/blob/master/animation.gif)
 
 ## Getting started
 
@@ -62,3 +61,6 @@ link: - Adds a URL to the message. The method automatically handles the URL shor
 
 SLComposeViewControllerResultCancelled – The user cancelled the composition session by touching the Cancel button.
 SLComposeViewControllerResultDone – The user sent the composed message by touching the Send button.
+
+
+![Screenshot](https://github.com/doefler/react-native-social-share/blob/master/still.png)
