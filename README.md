@@ -10,7 +10,7 @@ I developed this module for our upcoming artboost app.
 https://artboost.com
 
 
-![Animation](https://raw.githubusercontent.com/doefler/react-native-social-share/master/animation.gif)
+![Animation](https://raw.githubusercontent.com/doefler/react-native-social-share/master/animation-looping.gif)
 
 ## Getting started
 
