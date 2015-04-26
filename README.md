@@ -6,6 +6,9 @@ You can even preset text, image and link for the share view.
 
 In other words a React Native wrapper for the `SLComposeViewController`
 
+I developed this module for our upcomming artboost app.
+https://artboost.com
+
 
 ![Animation](https://raw.githubusercontent.com/doefler/react-native-social-share/master/animation.gif)
 
