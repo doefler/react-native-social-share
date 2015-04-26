@@ -1,6 +1,6 @@
 {
   "name": "react-native-social-share",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Use the iOS native Twitter and Facebook share view from react native",
   "author": {
     "name": "Kim Døfler",
