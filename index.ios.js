@@ -60,7 +60,7 @@ var ReactNativeSocialShare = React.createClass({
 
         <TouchableHighlight onPress={this.tweet}>
           <View style={{alignItems: 'center',justifyContent:'center', width: 150, height: 50,backgroundColor:'#00aced'}}>
-           <Text style={{color:'#ffffff',fontWeight:800,}}>Share on Twitter</Text>
+           <Text style={{color:'#ffffff',fontWeight:'800',}}>Share on Twitter</Text>
           </View>
         </TouchableHighlight>
 
@@ -68,7 +68,7 @@ var ReactNativeSocialShare = React.createClass({
 
         <TouchableHighlight onPress={this.shareOnFacebook}>
           <View style={{alignItems: 'center',justifyContent:'center', width: 150, height: 50,backgroundColor:'#3b5998'}}>
-           <Text style={{color:'#ffffff',fontWeight:800,}}>Share on Facebook</Text>
+           <Text style={{color:'#ffffff',fontWeight:'800',}}>Share on Facebook</Text>
           </View>
         </TouchableHighlight>
       </View>
