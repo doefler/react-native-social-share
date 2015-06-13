@@ -72,7 +72,7 @@ The options object lets you prepopulate the share view for the user. You can use
 | ------------- | ------------- |
 | text      | Sets the initial text of the message on the SLComposeViewController instance.  |
 | imagelink      | Adds an image file from the given publicly available URL as attachments to the message.  |
-| imagelink      | Adds a URL to the message. The method automatically handles the URL shortening.  |
+| link      | Adds a URL to the message. The method automatically handles the URL shortening.  |
 
 
 ### Callback
