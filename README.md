@@ -37,6 +37,8 @@ After doing that you will be able to popup the share views from your own functio
         'text':'Global democratized marketplace for art',
         'link':'https://artboost.com/',
         'imagelink':'https://artboost.com/apple-touch-icon-144x144.png',
+        //or use image
+        'image': 'artboost-icon',
       },
       (results) => {
         console.log(results);
@@ -50,6 +52,8 @@ After doing that you will be able to popup the share views from your own functio
         'text':'Global democratized marketplace for art',
         'link':'https://artboost.com/',
         'imagelink':'https://artboost.com/apple-touch-icon-144x144.png',
+        //or use image
+        'image': 'artboost-icon',
       },
       (results) => {
         console.log(results);
@@ -72,6 +76,7 @@ The options object lets you prepopulate the share view for the user. You can use
 | ------------- | ------------- |
 | text      | Sets the initial text of the message on the SLComposeViewController instance.  |
 | imagelink      | Adds an image file from the given publicly available URL as attachments to the message.  |
+| image     | Adds an image file from the xcode image assets.  image takes priority over imagelink. Only one out of two will load.  |
 | link      | Adds a URL to the message. The method automatically handles the URL shortening.  |
 
 
@@ -111,6 +116,8 @@ var ReactNativeSocialShare = React.createClass({
         'text':'Global democratized marketplace for art',
         'link':'https://artboost.com/',
         'imagelink':'https://artboost.com/apple-touch-icon-144x144.png',
+        //or use image
+        'image': 'artboost-icon',
       },
       (results) => {
         console.log(results);
@@ -124,6 +131,8 @@ var ReactNativeSocialShare = React.createClass({
         'text':'Global democratized marketplace for art',
         'link':'https://artboost.com/',
         'imagelink':'https://artboost.com/apple-touch-icon-144x144.png',
+        //or use image
+        'image': 'artboost-icon',
       },
       (results) => {
         console.log(results);
