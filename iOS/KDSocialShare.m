@@ -27,7 +27,9 @@ RCT_EXPORT_METHOD(tweet:(NSDictionary *)options
       [composeCtl addURL:[NSURL URLWithString:link]];
     }
     
-    if (options[@"imagelink"]){
+    if (options[@"image"]){
+      [composeCtl addImage: [UIImage imageNamed: options[@"image"]]];
+    } else if (options[@"imagelink"]){
       NSString *imagelink = [RCTConvert NSString:options[@"imagelink"]];
       UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagelink]]];
       [composeCtl addImage:image];
@@ -68,8 +70,10 @@ RCT_EXPORT_METHOD(shareOnFacebook:(NSDictionary *)options
       NSString *link = [RCTConvert NSString:options[@"link"]];
       [composeCtl addURL:[NSURL URLWithString:link]];
     }
-    
-    if (options[@"imagelink"]){
+
+    if (options[@"image"]){
+      [composeCtl addImage: [UIImage imageNamed: options[@"image"]]];
+    } else if (options[@"imagelink"]){
       NSString *imagelink = [RCTConvert NSString:options[@"imagelink"]];
       UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagelink]]];
       [composeCtl addImage:image];
