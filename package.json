@@ -29,9 +29,6 @@
     "type": "git",
     "url": "git://github.com/doefler/react-native-social-share.git"
   },
-  "peerDependencies": {
-    "react-native": ">= 0.4 || 0.7.0-rc1"
-  },
   "scripts": {},
   "_npmUser": {
     "name": "doefler",
