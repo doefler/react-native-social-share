@@ -21,25 +21,25 @@ RCT_EXPORT_METHOD(tweet:(NSDictionary *)options
   if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
     NSString *serviceType = SLServiceTypeTwitter;
     SLComposeViewController *composeCtl = [SLComposeViewController composeViewControllerForServiceType:serviceType];
-    
-    if (options[@"link"]){
+
+    if (options[@"link"] && ![options[@"link"] isEqual: @"<null>"]) {
       NSString *link = [RCTConvert NSString:options[@"link"]];
       [composeCtl addURL:[NSURL URLWithString:link]];
     }
-    
-    if (options[@"image"]){
+
+    if ([options objectForKey:@"image"] && [options objectForKey:@"image"] != [NSNull null]) {
       [composeCtl addImage: [UIImage imageNamed: options[@"image"]]];
-    } else if (options[@"imagelink"]){
+    } else if ([options objectForKey:@"imagelink"] && [options objectForKey:@"imagelink"] != [NSNull null]) {
       NSString *imagelink = [RCTConvert NSString:options[@"imagelink"]];
       UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagelink]]];
       [composeCtl addImage:image];
     }
-    
-    if (options[@"text"]){
+
+    if ([options objectForKey:@"text"] && [options objectForKey:@"text"] != [NSNull null]) {
       NSString *text = [RCTConvert NSString:options[@"text"]];
       [composeCtl setInitialText:text];
     }
-    
+
     [composeCtl setCompletionHandler:^(SLComposeViewControllerResult result) {
       if (result == SLComposeViewControllerResultDone) {
         // Sent
@@ -50,7 +50,7 @@ RCT_EXPORT_METHOD(tweet:(NSDictionary *)options
         callback(@[@"cancelled"]);
       }
     }];
-    
+
     UIViewController *ctrl = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     [ctrl presentViewController:composeCtl animated:YES completion: nil];
   }
@@ -65,25 +65,25 @@ RCT_EXPORT_METHOD(shareOnFacebook:(NSDictionary *)options
   if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
     NSString *serviceType = SLServiceTypeFacebook;
     SLComposeViewController *composeCtl = [SLComposeViewController composeViewControllerForServiceType:serviceType];
-    
-    if (options[@"link"]){
+
+    if (options[@"link"] && ![options[@"link"] isEqual: @"<null>"]){
       NSString *link = [RCTConvert NSString:options[@"link"]];
       [composeCtl addURL:[NSURL URLWithString:link]];
     }
 
-    if (options[@"image"]){
+    if (options[@"image"] && ![options[@"image"] isEqual: @"<null>"]){
       [composeCtl addImage: [UIImage imageNamed: options[@"image"]]];
-    } else if (options[@"imagelink"]){
+    } else if (options[@"imagelink"] && ![options[@"imagelink"] isEqual: @"<null>"]){
       NSString *imagelink = [RCTConvert NSString:options[@"imagelink"]];
       UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagelink]]];
       [composeCtl addImage:image];
     }
-    
-    if (options[@"text"]){
+
+    if (options[@"text"] && ![options[@"text"] isEqual: @"<null>"]){
       NSString *text = [RCTConvert NSString:options[@"text"]];
       [composeCtl setInitialText:text];
     }
-    
+
     [composeCtl setCompletionHandler:^(SLComposeViewControllerResult result) {
       if (result == SLComposeViewControllerResultDone) {
         // Sent
@@ -94,7 +94,7 @@ RCT_EXPORT_METHOD(shareOnFacebook:(NSDictionary *)options
         callback(@[@"cancelled"]);
       }
     }];
-    
+
     UIViewController *ctrl = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     [ctrl presentViewController:composeCtl animated:YES completion: nil];
   }
