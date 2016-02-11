@@ -66,20 +66,20 @@ RCT_EXPORT_METHOD(shareOnFacebook:(NSDictionary *)options
     NSString *serviceType = SLServiceTypeFacebook;
     SLComposeViewController *composeCtl = [SLComposeViewController composeViewControllerForServiceType:serviceType];
 
-    if (options[@"link"] && ![options[@"link"] isEqual: @"<null>"]){
+    if ([options objectForKey:@"link"] && [options objectForKey:@"link"] != [NSNull null]) {
       NSString *link = [RCTConvert NSString:options[@"link"]];
       [composeCtl addURL:[NSURL URLWithString:link]];
     }
 
-    if (options[@"image"] && ![options[@"image"] isEqual: @"<null>"]){
+    if ([options objectForKey:@"image"] && [options objectForKey:@"image"] != [NSNull null]) {
       [composeCtl addImage: [UIImage imageNamed: options[@"image"]]];
-    } else if (options[@"imagelink"] && ![options[@"imagelink"] isEqual: @"<null>"]){
+    } else if ([options objectForKey:@"imagelink"] && [options objectForKey:@"imagelink"] != [NSNull null]) {
       NSString *imagelink = [RCTConvert NSString:options[@"imagelink"]];
       UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagelink]]];
       [composeCtl addImage:image];
     }
 
-    if (options[@"text"] && ![options[@"text"] isEqual: @"<null>"]){
+    if ([options objectForKey:@"text"] && [options objectForKey:@"text"] != [NSNull null]) {
       NSString *text = [RCTConvert NSString:options[@"text"]];
       [composeCtl setInitialText:text];
     }
