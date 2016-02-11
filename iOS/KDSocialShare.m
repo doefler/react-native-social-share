@@ -22,7 +22,7 @@ RCT_EXPORT_METHOD(tweet:(NSDictionary *)options
     NSString *serviceType = SLServiceTypeTwitter;
     SLComposeViewController *composeCtl = [SLComposeViewController composeViewControllerForServiceType:serviceType];
 
-    if (options[@"link"] && ![options[@"link"] isEqual: @"<null>"]) {
+    if ([options objectForKey:@"link"] && [options objectForKey:@"link"] != [NSNull null]) {
       NSString *link = [RCTConvert NSString:options[@"link"]];
       [composeCtl addURL:[NSURL URLWithString:link]];
     }
