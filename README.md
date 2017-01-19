@@ -1,7 +1,7 @@
 # React Native Social Share
 
-Use the build in share view from iOS to let the user share on Facebook and Twitter.
-It will use the users existing account without having to get new authorizations.
+Use the built-in share view from iOS to let the user share on Facebook and Twitter.
+It will use the user's existing account without having to get new authorizations.
 You can even preset text, image and link for the share view.
 
 In other words a React Native wrapper for the `SLComposeViewController`
@@ -29,7 +29,7 @@ First you should make the native implementation available in the react code by i
 ```
 var KDSocialShare = require('NativeModules').KDSocialShare;
 ```
-After doing that you will be able to popup the share views from your own functions. I made two examples below one for Facebook and one for Twitter
+After doing that you will be able to popup the share views from your own functions. I made two examples below, one for Facebook and one for Twitter
 ```
   tweet : function() {
 
