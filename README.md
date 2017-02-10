@@ -16,7 +16,7 @@ https://artboost.com
 
 1. `npm install react-native-social-share --save`
 2. In XCode, in the project navigator right click `Libraries` ➜ `Add Files to [your project's name]`
-3. Go to `node_modules` ➜ `react-native-social-share`➜ iOS and add `KDSocialShare.h` and `KDSocialShare.m` 
+3. Go to `node_modules` ➜ `react-native-social-share`➜ iOS and add `KDSocialShare.h` and `KDSocialShare.m`
 4. Go to your project's `Build Phases` ➜ `Link Binary With Libraries` phase
 5. Add `Social.framework` to ➜ `Link Binary With Libraries` build phase of your project (click the '+' and search for 'social').
 6. Run your project (`Cmd+R`)
@@ -33,7 +33,7 @@ After doing that you will be able to popup the share views from your own functio
 ```
   tweet : function() {
 
-    KDSocialShare.tweet({
+    KDSocialShare.shareOnTwitter({
         'text':'Global democratized marketplace for art',
         'link':'https://artboost.com/',
         'imagelink':'https://artboost.com/apple-touch-icon-144x144.png',
@@ -65,14 +65,14 @@ After doing that you will be able to popup the share views from your own functio
 The two implementations take the following paramters
 
 - `KDSocialShare.shareOnFacebook(options [object], callback [function])`
-- `KDSocialShare.tweet(options [object], callback [function])`
+- `KDSocialShare.shareOnTwitter(options [object], callback [function])`
 
-#### IMPORTANT Both the options object and the callback function needs to be set. The options object can be empty though if you do not want to preset any of the possible options. 
+#### IMPORTANT Both the options object and the callback function needs to be set. The options object can be empty though if you do not want to preset any of the possible options.
 
 ### Options
 The options object lets you prepopulate the share view for the user. You can use the following parameters:
 
-| Parameter     | Desciption    | 
+| Parameter     | Desciption    |
 | ------------- | ------------- |
 | text      | Sets the initial text of the message on the SLComposeViewController instance.  |
 | imagelink      | Adds an image file from the given publicly available URL as attachments to the message.  |
@@ -83,7 +83,7 @@ The options object lets you prepopulate the share view for the user. You can use
 ### Callback
 The callback function runs when the native environment has information for the react environment
 
-| Callback     | Desciption    | 
+| Callback     | Desciption    |
 | ------------- | ------------- |
 | "success"      | Native call made by the viewController - SLComposeViewControllerResultDone – The user sent the composed message by touching the Send button. |
 | "cancelled"      | Native call made by the viewController - SLComposeViewControllerResultCancelled – The user cancelled the composition session by touching the Cancel button.  |
@@ -112,7 +112,7 @@ var ReactNativeSocialShare = React.createClass({
 
   tweet : function() {
 
-    KDSocialShare.tweet({
+    KDSocialShare.shareOnTwitter({
         'text':'Global democratized marketplace for art',
         'link':'https://artboost.com/',
         'imagelink':'https://artboost.com/apple-touch-icon-144x144.png',
@@ -169,7 +169,7 @@ var ReactNativeSocialShare = React.createClass({
         </TouchableHighlight>
       </View>
 
-      
+
     );
   }
 });
