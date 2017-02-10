@@ -81,6 +81,7 @@ The options object lets you pre-populate the share view for the user. You can us
 | image     | Adds an image file from the xcode image assets.  image takes priority over imagelink. Only one out of two will load.  |
 | link      | Adds a URL to the message. The method automatically handles the URL shortening.  |
 
+**At least the `text` or `link` parameter must be specified**
 
 ### Callback
 The callback function runs when the native environment has information for the react environment
