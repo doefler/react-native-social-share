@@ -1,5 +1,5 @@
 /**
- * @providesModule react-native-device-info
+ * @providesModule react-native-social-share
  */
 
 var KDSocialShare = require('react-native').NativeModules.KDSocialShare;
