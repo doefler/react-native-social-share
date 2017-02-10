@@ -7,7 +7,7 @@
 //
 
 #import "KDSocialShare.h"
-#import "RCTConvert.h"
+#import <React/RCTConvert.h>
 #import <Social/Social.h>
 
 @implementation KDSocialShare
