@@ -81,15 +81,29 @@ The options object lets you pre-populate the share view for the user. You can us
 | image     | Adds an image file from the xcode image assets.  image takes priority over imagelink. Only one out of two will load.  |
 | link      | Adds a URL to the message. The method automatically handles the URL shortening.  |
 
+**At least the `text` or `link` parameter must be specified**
+
+### Special Case: Facebook on Android
+
+Due to [various known problems](http://stackoverflow.com/questions/23541823/how-to-share-text-and-image-on-facebook-using-intent) with Facebook's implementation of Android Intents, sharing with Facebook on Android can only be done in two ways:
+
+1. If the user has the Facebook application installed, and the `text` parameter is provided; or
+2. If the `link` parameter is provided.
+
+Only one of the `link` or `text` parameter can be passed to the `shareWithFacebook` method on Android devices. Image parameters are ignored entirely.
+
+We recommend using the [official Facebook SDK](https://developers.facebook.com/docs/sharing/android) to perform more complex sharing operations on Android.
+
 
 ### Callback
-The callback function runs when the native environment has information for the react environment
+The callback function runs when the native environment has information for the react environment. **Note that some callbacks are only available on iOS due to platform limitations**
 
-| Callback     | Desciption    |
-| ------------- | ------------- |
-| "success"      | Native call made by the viewController - SLComposeViewControllerResultDone – The user sent the composed message by touching the Send button. |
-| "cancelled"      | Native call made by the viewController - SLComposeViewControllerResultCancelled – The user cancelled the composition session by touching the Cancel button.  |
-| "not_available"      | The selected service eg. Facebook, is not available. This can be because the user has not signed in to Facebook on the device or maybe there is no internet access. |
+| Callback     | Desciption    | iOS | Android |
+| ------------- | ------------- | ----| ------- |
+| "success"      | Native call made by the viewController - SLComposeViewControllerResultDone – The user sent the composed message by touching the Send button. | Yes | No |
+| "cancelled"      | Native call made by the viewController - SLComposeViewControllerResultCancelled – The user cancelled the composition session by touching the Cancel button.  | Yes | No |
+| "not_available"      | The selected service eg. Facebook, is not available. This can be because the user has not signed in to Facebook on the device or maybe there is no internet access. | Yes | No (Android functionality falls back to web views) |
+| "missing\_link\_or\_text"      | Neither the `link` nor `text` parameter was provided | Yes | Yes |
 
 You can use these callbacks to present alerts to the user. For example tell the user to login to a certain service.
 
