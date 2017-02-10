@@ -40,5 +40,6 @@
       "email": "kim.doefler@gmail.com"
     }
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "main": "react-native-social-share.js"
 }
