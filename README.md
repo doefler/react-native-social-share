@@ -35,7 +35,7 @@ After doing that you will be able to popup the share views from your own functio
 ```
   tweet : function() {
 
-    twitterShare({
+    shareOnTwitter({
         'text':'Global democratized marketplace for art',
         'link':'https://artboost.com/',
         'imagelink':'https://artboost.com/apple-touch-icon-144x144.png',
