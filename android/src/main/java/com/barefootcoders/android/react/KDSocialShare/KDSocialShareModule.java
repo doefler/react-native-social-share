@@ -51,6 +51,27 @@ public class KDSocialShareModule extends ReactContextBaseJavaModule {
     }
   }
 
+  @ReactMethod
+  public void shareOnFacebook(ReadableMap options, Callback callback) {
+    try {
+      String shareText = options.getString("text");
+      String shareUrl = options.getString("link");
+      Intent shareIntent;
+
+      if (doesPackageExist("com.facebook.katana")) {
+        shareIntent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, shareText);
+      } else {
+        String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u=" + shareUrl;
+        intent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl));
+      }
+      reactContext.startActivity(shareIntent);
+    } catch (Exception ex) {
+      callback.invoke("error");
+    }
+  }
+
   private boolean doesPackageExist(String targetPackage) {
     PackageManager pm = this.reactContext.getPackageManager();
     try {
