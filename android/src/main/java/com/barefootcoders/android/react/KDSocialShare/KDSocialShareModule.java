@@ -45,6 +45,8 @@ public class KDSocialShareModule extends ReactContextBaseJavaModule {
         Uri uri = Uri.parse(tweetUrl);
         shareIntent = new Intent(Intent.ACTION_VIEW, uri);
       }
+      
+      shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       reactContext.startActivity(shareIntent);
     } catch (Exception ex) {
       callback.invoke("error");
