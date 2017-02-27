@@ -9,6 +9,7 @@ In other words a React Native wrapper for the `SLComposeViewController`
 ** Support for Android **
 
 27 Feb 2017 - @minhtule has made improvements to sharing on Android 
+
 10 Feb 2017 - @Jberlinsky has added support for Android
 
 Let me know how it works.
