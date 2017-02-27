@@ -33,19 +33,20 @@ public class KDSocialShareModule extends ReactContextBaseJavaModule {
   public void tweet(ReadableMap options, Callback callback) {
     try {
       String shareText = options.getString("text");
-      Intent shareIntent;
 
       if (doesPackageExist("com.twitter.android")) {
-        shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setClassName("com.twitter.android", "com.twitter.android.PostActivity");
-        shareIntent.setType("text/*");
-        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareText);
+        try {
+          tweetViaTwitterComposerClass(shareText);
+        } catch (Exception ex1) {
+          try {
+            tweetViaTwitterDefaultClass(shareText);
+          } catch (Exception ex2) {
+            tweetViaWebPopup(shareText);
+          }
+        }
       } else {
-        String tweetUrl = "https://twitter.com/intent/tweet?text=" + shareText;
-        Uri uri = Uri.parse(tweetUrl);
-        shareIntent = new Intent(Intent.ACTION_VIEW, uri);
+        tweetViaWebPopup(shareText);
       }
-      reactContext.startActivity(shareIntent);
     } catch (Exception ex) {
       callback.invoke("error");
     }
@@ -91,5 +92,31 @@ public class KDSocialShareModule extends ReactContextBaseJavaModule {
        return false;
      }
      return true;
+  }
+
+  private void tweetViaTwitterComposerClass(String shareText) throws Exception {
+    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+    shareIntent.setClassName("com.twitter.android", "com.twitter.android.composer.ComposerActivity");
+    shareIntent.setType("text/*");
+    shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareText);
+    shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    reactContext.startActivity(shareIntent);
+  }
+
+  private void tweetViaTwitterDefaultClass(String shareText) throws Exception {
+    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+    shareIntent.setPackage("com.twitter.android");
+    shareIntent.setType("text/*");
+    shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareText);
+    shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    reactContext.startActivity(shareIntent);
+  }
+
+  private void tweetViaWebPopup(String shareText) throws Exception {
+    String tweetUrl = "https://twitter.com/intent/tweet?text=" + shareText;
+    Uri uri = Uri.parse(tweetUrl);
+    Intent shareIntent = new Intent(Intent.ACTION_VIEW, uri);
+    shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    reactContext.startActivity(shareIntent);
   }
 }
