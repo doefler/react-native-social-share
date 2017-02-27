@@ -6,7 +6,7 @@ You can even preset text, image and link for the share view.
 
 In other words a React Native wrapper for the `SLComposeViewController`
 
-** Support for Android **
+__Support for Android__
 
 27 Feb 2017 - @minhtule has made improvements to sharing on Android 
 
