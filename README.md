@@ -224,3 +224,29 @@ AppRegistry.registerComponent('ReactNativeSocialShare', () => ReactNativeSocialS
 ## Done
 
 ![Screenshot](https://raw.githubusercontent.com/doefler/react-native-social-share/master/still.png)
+
+
+## Who is using it
+
+* [ec-deploy-mobile](https://github.com/artyomtrityak/ec-deploy-mobile) by [artyomtrityak](https://github.com/artyomtrityak)
+* [react-native-recipes-app](https://github.com/push23/react-native-recipes-app) by [push23](https://github.com/push23)
+* [drumpfgenerator-mobile](https://github.com/si74/drumpfgenerator-mobile) by [si74](https://github.com/si74)
+* [best_quotes_native_app](https://github.com/anamariasosam/best_quotes_native_app) by [anamariasosam](https://github.com/anamariasosam)
+* [Concert](https://github.com/aakashsigdel/Concert) by [aakashsigdel](https://github.com/aakashsigdel)
+* [Synerzip-HRMS-iOS](https://github.com/Synerzip/Synerzip-HRMS-iOS) by [Synerzip](https://github.com/Synerzip)
+* [slight-note](https://github.com/Roy9102/slight-note) by [Roy9102](https://github.com/Roy9102)
+* [Water](https://github.com/jvt/Water) by [jvt](https://github.com/jvt)
+* [smstet](https://github.com/phanthoa/smstet) by [phanthoa](https://github.com/phanthoa)
+* [PilotCalendarFinancial](https://github.com/kenvandemar/PilotCalendarFinancial) by [kenvandemar](https://github.com/kenvandemar)
+* [devine-v0-app](https://github.com/davidsims9t/devine-v0-app) by [davidsims9t](https://github.com/davidsims9t)
+* [rebus](https://github.com/michaelgena/rebus) by [michaelgena](https://github.com/michaelgena)
+* [NeedlApp](https://github.com/ghamaide/NeedlApp) by [ghamaide](https://github.com/ghamaide)
+* [randomSofar](https://github.com/conorcussell/randomSofar) by [conorcussell](https://github.com/conorcussell)
+* [react-native-create-caps](https://github.com/sozkahya/react-native-create-caps) by [sozkahya](https://github.com/sozkahya)
+* [DocLibs](https://github.com/IceNeoMax/DocLibs) by [IceNeoMax](https://github.com/IceNeoMax)
+* [rebby](https://github.com/michaelgena/rebby) by [michaelgena](https://github.com/michaelgena)
+* [PilotFinancialCalendarRedux](https://github.com/kenvandemar/PilotFinancialCalendarRedux) by [kenvandemar](https://github.com/kenvandemar)
+* [client-fashion-spotting-app](https://github.com/hmm29/client-fashion-spotting-app) by [hmm29](https://github.com/hmm29)
+
+
+Your contributions and suggestions are welcome.
