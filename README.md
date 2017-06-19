@@ -251,5 +251,3 @@ AppRegistry.registerComponent('ReactNativeSocialShare', () => ReactNativeSocialS
 
 
 Your contributions and suggestions are welcome.
-
-![](https://www.facebook.com/tr?id=1640352236217606&ev=PageView&noscript=1)
