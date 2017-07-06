@@ -10,5 +10,4 @@
 #import <React/RCTBridgeModule.h>
 
 @interface KDSocialShare : NSObject <RCTBridgeModule>
-
 @end
