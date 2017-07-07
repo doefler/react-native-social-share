@@ -22,11 +22,12 @@ Let me know how it works.
 ## Getting started
 
 1. `npm install react-native-social-share --save`
-2. In XCode, in the project navigator right click `Libraries` ➜ `Add Files to [your project's name]`
-3. Go to `node_modules` ➜ `react-native-social-share`➜ iOS and add `KDSocialShare.h` and `KDSocialShare.m` 
-4. Go to your project's `Build Phases` ➜ `Link Binary With Libraries` phase
-5. Add `Social.framework` to ➜ `Link Binary With Libraries` build phase of your project (click the '+' and search for 'social').
-6. Run your project (`Cmd+R`)
+2. `react-native link`
+3. In XCode, in the project navigator right click `Libraries` ➜ `Add Files to [your project's name]`
+4. Go to `node_modules` ➜ `react-native-social-share`➜ iOS and add `KDSocialShare.h` and `KDSocialShare.m` 
+5. Go to your project's `Build Phases` ➜ `Link Binary With Libraries` phase
+6. Add `Social.framework` to ➜ `Link Binary With Libraries` build phase of your project (click the '+' and search for 'social').
+7. Run your project (`Cmd+R`)
 
 Now you can implement the share popups in your react native code.
 
