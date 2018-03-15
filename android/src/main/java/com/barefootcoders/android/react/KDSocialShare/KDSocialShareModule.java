@@ -64,7 +64,7 @@ public class KDSocialShareModule extends ReactContextBaseJavaModule {
         shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
       } else if (options.hasKey("link")) {
         String shareUrl = options.getString("link");
-        String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u=" + shareUrl;
+        String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u=" + Uri.encode(shareUrl);
         shareIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl));
       } else {
         if (options.hasKey("text") && !doesPackageExist("com.facebook.katana")) {
@@ -113,7 +113,7 @@ public class KDSocialShareModule extends ReactContextBaseJavaModule {
   }
 
   private void tweetViaWebPopup(String shareText) throws Exception {
-    String tweetUrl = "https://twitter.com/intent/tweet?text=" + shareText;
+    String tweetUrl = "https://twitter.com/intent/tweet?text=" + Uri.encode(shareText);
     Uri uri = Uri.parse(tweetUrl);
     Intent shareIntent = new Intent(Intent.ACTION_VIEW, uri);
     shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
