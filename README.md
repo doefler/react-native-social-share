@@ -27,7 +27,8 @@ Let me know how it works.
 4. Go to `node_modules` ➜ `react-native-social-share`➜ iOS and add `KDSocialShare.h` and `KDSocialShare.m` 
 5. Go to your project's `Build Phases` ➜ `Link Binary With Libraries` phase
 6. Add `Social.framework` to ➜ `Link Binary With Libraries` build phase of your project (click the '+' and search for 'social').
-7. Run your project (`Cmd+R`)
+7. Add 'LSApplicationQueriesSchemes' key (Type: Array) with items (Type: String) 'fb' and 'twitter'  to `Info.plist` of your project 
+8. Run your project (`Cmd+R`)
 
 Now you can implement the share popups in your react native code.
 
