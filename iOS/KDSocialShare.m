@@ -24,11 +24,6 @@ RCT_EXPORT_MODULE()
      options:(NSDictionary *)options
     callback:(RCTResponseSenderBlock)callback
 {
-  if (![SLComposeViewController isAvailableForServiceType:serviceType]) {
-    callback(@[@"not_available"]);
-    return;
-  }
-
   SLComposeViewController *composeCtl = [SLComposeViewController composeViewControllerForServiceType:serviceType];
 
   if ([options objectForKey:@"link"] && [options objectForKey:@"link"] != [NSNull null]) {
@@ -67,13 +62,23 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(shareOnFacebook:(NSDictionary *)options
                   callback: (RCTResponseSenderBlock)callback)
 {
-  [self share:SLServiceTypeFacebook options:options callback: callback];
+    NSURL *url = [NSURL URLWithString:@"fb://"];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [self share:SLServiceTypeFacebook options:options callback: callback];
+    } else {
+        callback(@[@"not_available"]);
+    }
 }
 
 RCT_EXPORT_METHOD(tweet:(NSDictionary *)options
                   callback: (RCTResponseSenderBlock)callback)
 {
-  [self share:SLServiceTypeTwitter options:options callback: callback];
+    NSURL *url = [NSURL URLWithString:@"twitter://"];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [self share:SLServiceTypeTwitter options:options callback: callback];
+    } else {
+        callback(@[@"not_available"]);
+    }
 }
 
 @end
