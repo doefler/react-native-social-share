@@ -8,7 +8,7 @@ In other words a React Native wrapper for the `SLComposeViewController`
 
 __Support for Android__
 
-27 Feb 2017 - @minhtule has made improvements to sharing on Android 
+27 Feb 2017 - @minhtule has made improvements to sharing on Android
 
 10 Feb 2017 - @Jberlinsky has added support for Android
 
@@ -24,10 +24,10 @@ Let me know how it works.
 1. `npm install react-native-social-share --save`
 2. `react-native link`
 3. In XCode, in the project navigator right click `Libraries` ➜ `Add Files to [your project's name]`
-4. Go to `node_modules` ➜ `react-native-social-share`➜ iOS and add `KDSocialShare.h` and `KDSocialShare.m` 
+4. Go to `node_modules` ➜ `react-native-social-share`➜ iOS and add `KDSocialShare.h` and `KDSocialShare.m`
 5. Go to your project's `Build Phases` ➜ `Link Binary With Libraries` phase
 6. Add `Social.framework` to ➜ `Link Binary With Libraries` build phase of your project (click the '+' and search for 'social').
-7. Add 'LSApplicationQueriesSchemes' key (Type: Array) with items (Type: String) 'fb' and 'twitter'  to `Info.plist` of your project 
+7. Add 'LSApplicationQueriesSchemes' key (Type: Array) with items (Type: String) 'fb' and 'twitter'  to `Info.plist` of your project
 8. Run your project (`Cmd+R`)
 
 Now you can implement the share popups in your react native code.
@@ -251,5 +251,33 @@ AppRegistry.registerComponent('ReactNativeSocialShare', () => ReactNativeSocialS
 * [PilotFinancialCalendarRedux](https://github.com/kenvandemar/PilotFinancialCalendarRedux) by [kenvandemar](https://github.com/kenvandemar)
 * [client-fashion-spotting-app](https://github.com/hmm29/client-fashion-spotting-app) by [hmm29](https://github.com/hmm29)
 
+
+## Implementation Notes from Other Developers/Projects
+@AngusMcCloud from BrewGene
+How I use react-native-social-share: Used for enabling users to quickly post to Twitter, providing default text for quicker tweets, linking to a page on our website, and showing an image (where appropriate)
+
+Main issues faced:
+* This module didn't work for Facebook on Android, so I only use it for Twitter (using react-native-fbsdk for Facebook sharing)
+* On iOS 11 the Twitter integration does a bad job  handling combinations of the text, link, and imageLink variables
+    * If you pass an imageLink: it ignores both the link and text
+    * If you leave imageLink null and pass both text and link: the link passes through as expected, but the text shows as the description on the link in the popup modal, instead of as text that you can edit and post (and after you actually post the link, your text from the variable is gone since Twitter will pull the description from the webpage)
+    * The best solution I've found: on iOS 11 send a null imageLink, a null link, and append the link on the end of text (downside: the user could edit the link, but on the plus side twitter will format the link after its posted as-if you passed a link variable)
+
+Example of how I make it work on iOS 11:
+```
+var text = "test default text the user sees in their tweet";
+var link = "https://www.demo.com/demo123";
+var imageLink = "https://www.demo.com/demo.png";
+if(Platform.OS === 'ios' && parseInt(Platform.Version, 10) >= 11){
+  text = text + " " + link;
+  link = null;
+  imageLink = null;
+}
+shareOnTwitter({
+  'text':text,
+  'link':link,
+  'imagelink':imageLink,
+}
+```
 
 Your contributions and suggestions are welcome.
