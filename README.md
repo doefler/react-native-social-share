@@ -35,14 +35,14 @@ Now you can implement the share popups in your react native code.
 ## Example of implementation
 
 First you should make the native implementation available in the react code by inserting the following line in the top of the file
-```
+``` JavaScript
 import {
   shareOnFacebook,
   shareOnTwitter,
 } from 'react-native-social-share';
 ```
 After doing that you will be able to popup the share views from your own functions. I made two examples below, one for Facebook and one for Twitter
-```
+``` JavaScript
   tweet : function() {
 
     shareOnTwitter({
@@ -119,7 +119,7 @@ You can use these callbacks to present alerts to the user. For example tell the 
 
 
 ## The full example code
-```
+``` JavaScript
 'use strict';
 
 var React = require('react-native');
