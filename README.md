@@ -16,7 +16,7 @@ Let me know how it works.
 
 
 
-![Animation](https://raw.githubusercontent.com/doefler/react-native-social-share/master/animation-looping.gif)
+![Animation](https://raw.githubusercontent.com/doefler/react-native-social-share/master/assets/animation-looping.gif)
 
 
 ## Getting started
@@ -226,7 +226,7 @@ AppRegistry.registerComponent('ReactNativeSocialShare', () => ReactNativeSocialS
 
 ## Done
 
-![Screenshot](https://raw.githubusercontent.com/doefler/react-native-social-share/master/still.png)
+![Screenshot](https://raw.githubusercontent.com/doefler/react-native-social-share/master/assets/still.png)
 
 
 ## Who is using it
