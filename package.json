@@ -29,7 +29,9 @@
     "type": "git",
     "url": "git://github.com/doefler/react-native-social-share.git"
   },
-  "scripts": {},
+  "scripts": {
+    "release": "release-it -n"
+  },
   "_npmUser": {
     "name": "doefler",
     "email": "kim.doefler@gmail.com"
