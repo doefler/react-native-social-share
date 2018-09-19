@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Build;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -62,10 +63,16 @@ public class KDSocialShareModule extends ReactContextBaseJavaModule {
         shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+          shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
       } else if (options.hasKey("link")) {
         String shareUrl = options.getString("link");
         String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u=" + Uri.encode(shareUrl);
         shareIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl));
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+          shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
       } else {
         if (options.hasKey("text") && !doesPackageExist("com.facebook.katana")) {
           callback.invoke("error", "If text is provided to Facebook sharing, the application must be installed");
