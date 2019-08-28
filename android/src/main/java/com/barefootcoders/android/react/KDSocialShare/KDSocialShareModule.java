@@ -63,14 +63,14 @@ public class KDSocialShareModule extends ReactContextBaseJavaModule {
         shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M || Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
           shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
       } else if (options.hasKey("link")) {
         String shareUrl = options.getString("link");
         String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u=" + Uri.encode(shareUrl);
         shareIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl));
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M || Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
           shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
       } else {
